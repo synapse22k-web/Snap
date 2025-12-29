@@ -1,10 +1,254 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Cabine Consulting IT</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Cabine Consulting IT – Conseil & Transformation Digitale</title>
+  <meta name="description" content="Cabine Consulting IT : architecture cloud, modernisation applicative, sécurité et accompagnement Azure pour PME et ETI." />
+
+  <!-- SEO & Open Graph -->
+  <meta property="og:title" content="Cabine Consulting IT" />
+  <meta property="og:description" content="Conseil, architecture et modernisation sur Azure." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/hero.jpg" />
+  <meta property="og:url" content="https://votre-domaine.com/" />
+
+  <!-- Favicon (optionnel) -->
+  <link rel="icon" href="/images/logo.png" type="ps://fonts.googleapis.com
+  https://fonts.gstatic.com
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@display=swap
+  <link rel=".css
+  <style>
+    /* Styles rapides si vous ne voulez pas créer css/styles.css tout de suite */
+    :root {
+      --bg: #0f172a;       /* bleu nuit */
+      --fg: #e5e7eb;       /* gris clair */
+      --accent: #3b82f6;   /* bleu Azure */
+      --muted: #94a3b8;    /* gris moyen */
+      --card: #111827;     /* fond cartes */
+      --border: #1f2937;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--fg);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Header */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px; border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; backdrop-filter: blur(8px);
+      background: rgba(15, 23, 42, 0.75);
+    }
+    .brand {
+      display: flex; align-items: center; gap: 12px;
+      font-weight: 700; letter-spacing: 0.2px;
+    }
+    .brand img {
+      width: 40px; height: 40px; object-fit: contain;
+    }
+    nav ul {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; gap: 18px;
+    }
+    nav a {
+      color: var(--fg); padding: 8px 10px; border-radius: 6px;
+    }
+    nav a:hover {
+      background: var(--border);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid; grid-template-columns: 1fr; gap: 24px;
+      padding: 64px 24px; text-align: center;
+      background: radial-gradient(1200px 600px at 50% -60%, #1e3a8a 0%, transparent 70%);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 48px);
+      margin: 0 0 12px;
+    }
+    .hero p {
+      font-size: clamp(16px, 2.6vw, 20px);
+      color: var(--muted);
+      margin: 0 auto 24px; max-width: 780px;
+    }
+    .cta {
+      display: inline-flex; gap: 12px;
+      align-items: center; justify-content: center;
+      padding: 12px 18px; border-radius: 10px;
+      background: var(--accent); color: white; font-weight: 600;
+      box-shadow: 0 8px 24px rgba(59,130,246,0.25);
+    }
+    .cta.secondary {
+      background: transparent; border: 1px solid var(--border); color: var(--fg);
+      box-shadow: none;
+    }
+    .cta-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* Services */
+    .section {
+      padding: 48px 24px;
+    }
+    .section h2 {
+      font-size: 28px; margin: 0 0 12px;
+    }
+    .section p.lead { color: var(--muted); margin: 0 0 24px; }
+    .cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 18px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { color: var(--muted); margin: 0; }
+
+    /* Bandeau clients */
+    .clients {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+      align-items: center;
+    }
+    .clients img {
+      width: 100%; max-height: 48px; object-fit: contain; filter: grayscale(1); opacity: 0.8;
+    }
+
+    /* Contact */
+    .contact {
+      display: grid; grid-template-columns: 1fr; gap: 12px;
+      max-width: 720px; margin: 0 auto;
+    }
+    .input {
+      display: grid; gap: 6px;
+    }
+    .input label { color: var(--muted); font-size: 14px; }
+    .input input, .input textarea {
+      padding: 10px 12px; border-radius: 8px; border: 1px solid var(--border);
+      background: #0b1220; color: var(--fg);
+    }
+    .input textarea { min-height: 120px; resize: vertical; }
+    .submit {
+      justify-self: start;
+      padding: 10px 16px; border-radius: 8px; border: none;
+      background: var(--accent); color: white; font-weight: 600; cursor: pointer;
+    }
+    .submit:hover { filter: brightness(1.05); }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px; color: var(--muted); text-align: center;
+    }
+
+    /* Responsive nav (mobile) */
+    @media (max-width: 720px) {
+      nav ul { display: none; } /* simplification pour l’exemple */
+    }
+  </style>
 </head>
 <body>
-    <h1>Bienvenue chez Cabine Consulting IT</h1>
+
+  <!-- Barre de navigation -->
+  <header class="topbar" role="banner">
+    <div class="brand">
+      <!-- Logo depuis /images -->
+      <img src="/images/logo.png" alt="Logo Cabine Consulting>
+    </div>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li>#servicesServices</a></li>
+        <li>#realisationsRéalisations</a></li>
+        <li>#contactContact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Section Hero -->
+  <section class="hero">
+    <h1>Accélérez votre transformation sur Azure</h1>
+    <p>
+      Nous aidons les PME et ETI à concevoir, migrer et opérer des architectures cloud
+      performantes, sécurisées et économes. Du cadrage à la mise en production, nos experts
+      vous accompagnent de bout en bout.
+    </p>
+    <div class="cta-group">
+      <a class="cta" href="#contactus</a>
+      #servicesVoir nos services</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="section" aria-labelledby="title-services">
+    <h2 id="title-services">Nos services</h2>
+    <p class="lead">Des offres pragmatiques pour des résultats rapides et mesurables.</p>
+    <div class="cards">
+      <article class="card">
+        <h3>Architecture Cloud Azure</h3>
+        <p>Design landing zone, réseau, sécurité, identités, IaC (Bicep/Terraform).</p>
+      </article>
+      <article class="card">
+        <h3>Modernisation Applicative</h3>
+        <p>Conteneurs, App Service, AKS, bases managées, CI/CD GitHub Actions.</p>
+      </article>
+      <article class="card">
+        <h3>FinOps & Sécurité</h3>
+        <p>Optimisation des coûts, posture de sécurité, surveillance et conformité.</p>
+      </article>
+      <article class="card">
+        <h3>Conseil & Coaching</h3>
+        <p>Audits, roadmaps, accompagnement des équipes et transfert de compétences.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Réalisations / Clients -->
+  <section id="realisations" class="section" aria-labelledby="title-realisations">
+    <h2 id="title-realisations">Ils nous font confiance</h2>
+    <p class="lead">Quelques logos de clients (exemples, remplacez par les vôtres) :</p>
+    <div class="clients" role="list">
+      /images/client-1.png
+      /images/client-2.png
+      <img src="/images/client-3.png" alt="Client 3client-</div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section" aria-labelledby="title-contact">
+    <h2 id="title-contact">Contact</h2>
+    <p class="lead">Expliquez-nous votre besoin, nous revenons vers vous sous 24–48h.</p>
+    <!-- Formulaire statique (action vide). Pour un envoi réel : Azure Functions ou service tiers. -->
+    #
+      <div class="input">
+        <label for="nom">Nom</label>
+        <input id="nom" name="nom" type="text" placeholder="Votre nom" required />
+      </div>
+      <div class="input">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="vous@exemple.com" required />
+      </div>
+      <div class="input">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Parlez-nous de votre projet..." required></textarea>
+      </div>
+      <button class="submit" type="submit">Envoyer</button>
+    </form>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Cabine Consulting IT — Tous droits réservés.
+  </footer>
+
+  <script>
+    // Met à jour l’année automatiquement
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
+``
